@@ -28,13 +28,12 @@ public class ShopSystem : MonoBehaviour
         PopulateItemList();
         ClearItemDetails();
 
-        UpdateGoldDisplay(); // tampilkan gold di awal
+        UpdateShellDisplay();
     }
 
     private void Update()
     {
-        // 🔹 Update gold text terus-menerus (bisa juga diganti event-based)
-        UpdateGoldDisplay();
+        UpdateShellDisplay();
     }
 
     private void PopulateItemList()
@@ -53,7 +52,7 @@ public class ShopSystem : MonoBehaviour
     public void DisplayItemDetails(ShopItemData item)
     {
         selectedItem = item;
-        // var gm = GoldManager.Instance;
+        var gm = ShellManager.Instance;
 
         itemNameText.text = item.itemName;
         itemDescriptionText.text = item.description;
@@ -67,7 +66,7 @@ public class ShopSystem : MonoBehaviour
         upgradeButton.onClick.RemoveAllListeners();
         upgradeButton.onClick.AddListener(() => BuyUpgrade(item));
 
-        UpdateGoldDisplay(); // update gold ketika item dipilih
+        UpdateShellDisplay(); // update gold ketika item dipilih
     }
 
     public void SetSelectedButton(ShopItemButton button)
@@ -84,7 +83,7 @@ public class ShopSystem : MonoBehaviour
 
     private void BuyUpgrade(ShopItemData item)
     {
-        // var gm = GoldManager.Instance;
+        var gm = ShellManager.Instance;
         // var rm = ResourceManager.Instance;
         // if (gm == null || rm == null) return;
 
@@ -112,7 +111,7 @@ public class ShopSystem : MonoBehaviour
 
         Debug.Log($"✅ Upgraded {item.itemName} to Level {item.upgradeLevel}");
         DisplayItemDetails(item); 
-        UpdateGoldDisplay(); // tampilkan gold baru setelah beli
+        UpdateShellDisplay(); // tampilkan gold baru setelah beli
     }
 
     private void ClearItemDetails()
@@ -131,15 +130,15 @@ public class ShopSystem : MonoBehaviour
         else
             ClearItemDetails();
 
-        UpdateGoldDisplay();
+        UpdateShellDisplay();
     }
 
     // 🔹 Tambahan fungsi baru
-    private void UpdateGoldDisplay()
+    private void UpdateShellDisplay()
     {
-        // if (goldText != null && GoldManager.Instance != null)
+        if (goldText != null && ShellManager.Instance != null)
         // {
-        //     goldText.text = $"Aeon Lights: {GoldManager.Instance.gold}";
+            goldText.text = $"Aeon Lights: {ShellManager.Instance.shell}";
         // }
     }
 }
