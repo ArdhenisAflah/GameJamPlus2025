@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Disable-Learn-To-Fly.sln"
+    "dotnet.defaultSolution": "GameJamPlus2025.sln"
 }
