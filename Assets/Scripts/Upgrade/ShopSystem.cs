@@ -53,7 +53,7 @@ public class ShopSystem : MonoBehaviour
     public void DisplayItemDetails(ShopItemData item)
     {
         selectedItem = item;
-        var gm = GoldManager.Instance;
+        // var gm = GoldManager.Instance;
 
         itemNameText.text = item.itemName;
         itemDescriptionText.text = item.description;
@@ -61,8 +61,8 @@ public class ShopSystem : MonoBehaviour
         int currentCost = Mathf.RoundToInt(item.baseCost * Mathf.Pow(item.costMultiplier, item.upgradeLevel));
         itemCostText.text = item.upgradeLevel >= item.maxLevel ? "MAXED" : $"Cost: {currentCost}";
 
-        bool canAfford = (gm != null && gm.gold >= currentCost);
-        upgradeButton.interactable = (item.upgradeLevel < item.maxLevel) && canAfford;
+        // bool canAfford = (gm != null && gm.gold >= currentCost);
+        // upgradeButton.interactable = (item.upgradeLevel < item.maxLevel) && canAfford;
 
         upgradeButton.onClick.RemoveAllListeners();
         upgradeButton.onClick.AddListener(() => BuyUpgrade(item));
@@ -84,29 +84,29 @@ public class ShopSystem : MonoBehaviour
 
     private void BuyUpgrade(ShopItemData item)
     {
-        var gm = GoldManager.Instance;
-        var rm = ResourceManager.Instance;
-        if (gm == null || rm == null) return;
+        // var gm = GoldManager.Instance;
+        // var rm = ResourceManager.Instance;
+        // if (gm == null || rm == null) return;
 
         int cost = Mathf.RoundToInt(item.baseCost * Mathf.Pow(item.costMultiplier, item.upgradeLevel));
-        if (gm.gold < cost)
-        {
-            Debug.LogWarning("❌ Not enough gold!");
-            return;
-        }
+        // if (gm.gold < cost)
+        // {
+        //     Debug.LogWarning("❌ Not enough gold!");
+        //     return;
+        // }
 
-        gm.SpendGold(cost);
+        // gm.SpendGold(cost);
         item.upgradeLevel++;
 
         switch (item.upgradeType)
         {
             case ShopItemData.UpgradeType.Mana:
-                rm.IncreaseMaxMana(1);
-                rm.FullRestoreMana();
+                // rm.IncreaseMaxMana(1);
+                // rm.FullRestoreMana();
                 break;
 
             case ShopItemData.UpgradeType.Selection:
-                rm.IncreaseSelectionLimit(1);
+                // rm.IncreaseSelectionLimit(1);
                 break;
         }
 
@@ -137,9 +137,9 @@ public class ShopSystem : MonoBehaviour
     // 🔹 Tambahan fungsi baru
     private void UpdateGoldDisplay()
     {
-        if (goldText != null && GoldManager.Instance != null)
-        {
-            goldText.text = $"Aeon Lights: {GoldManager.Instance.gold}";
-        }
+        // if (goldText != null && GoldManager.Instance != null)
+        // {
+        //     goldText.text = $"Aeon Lights: {GoldManager.Instance.gold}";
+        // }
     }
 }
