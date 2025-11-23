@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement; // kalau mau restart scene
 
@@ -11,10 +12,33 @@ public class PlayerGameOver : MonoBehaviour
     private float idleTimer = 0f;
     private bool touchedGround = false;
 
+    public GameObject GameOverPanel;
+    public Transform panelover;
+
+    public GameObject ShellsScore;
+    public GameObject Upgrades;
+
+    private bool isGameOver = false;
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    private void Start()
+    {
+        panelover = GameOverPanel.transform.GetChild(2);
+    }
     void Update()
     {
+        // Keyboard / Controller / Mouse / Touch
+        if ((Input.anyKeyDown && isGameOver == true) ||
+            (Input.touchCount > 0 && isGameOver == true) ||
+            (Input.GetMouseButtonDown(0) && isGameOver == true))
+        {
+            LoadUpgrade();
+        }
         // Cek velocity player
-        if (rb.velocity.magnitude <= velocityLimit)
+        if (rb.velocity.magnitude <= velocityLimit && !isGameOver)
         {
             idleTimer += Time.deltaTime;
 
@@ -43,8 +67,20 @@ public class PlayerGameOver : MonoBehaviour
         Debug.Log("GAME OVER");
 
         // Contoh: restart scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameOverPanel.SetActive(true);
         // Bisa diganti dengan UI GameOver juga
+        panelover.gameObject.GetComponent<TextMeshProUGUI>().text = "Score: " + ScorSystem.score.ToString();
+
+        //set bool gameover
+        isGameOver = true;
+
+    }
+
+    void LoadUpgrade()
+    {
+        GameOverPanel.SetActive(false);
+        ShellsScore.SetActive(true);
+        Upgrades.SetActive(true);
     }
 }
