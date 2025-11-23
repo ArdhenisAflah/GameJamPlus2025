@@ -9,6 +9,7 @@ public class StartMenuManager : MonoBehaviour
     {
         // Small delay prevents instant skipping when scene loads
         Invoke(nameof(EnableStart), 0.5f);
+        GameAudioManager.Instance.PlayBGM("bgm1");
     }
 
     void EnableStart()
