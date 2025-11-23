@@ -79,8 +79,15 @@ public class PlayerGameOver : MonoBehaviour
 
     void LoadUpgrade()
     {
-        GameOverPanel.SetActive(false);
-        ShellsScore.SetActive(true);
-        Upgrades.SetActive(true);
+        if (ScorSystem.score >= 3000)
+        {
+            SceneManager.LoadScene("");
+        }
+        else
+        {
+            GameOverPanel.SetActive(false);
+            ShellsScore.SetActive(true);
+            Upgrades.SetActive(true);
+        }
     }
 }
