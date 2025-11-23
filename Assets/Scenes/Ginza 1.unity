@@ -1181,6 +1181,7 @@ GameObject:
   - component: {fileID: 958850482}
   - component: {fileID: 958850484}
   - component: {fileID: 958850483}
+  - component: {fileID: 958850485}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1394,7 +1395,7 @@ MonoBehaviour:
   upwardBoost: 384.2
   forwardBoost: 300
   maxFuel: 1
-  fuelBurnRate: 0
+  fuelBurnRate: 0.4
   fuelRegenRate: 0
   groundSpeedLoss: 0
   slowResistance: 0.6
@@ -1457,6 +1458,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &958850485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958850473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f77013fb4a9a242a2741ffe5f843ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceStep: 1
 --- !u!1 &991621557
 GameObject:
   m_ObjectHideFlags: 0

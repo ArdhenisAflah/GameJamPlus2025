@@ -3,7 +3,7 @@ using UnityEngine;
 public class ScorSystem : MonoBehaviour
 {
     public static int score = 0;       // skor global
-    public float distanceStep = 100f;  // setiap 200 pixel = +1 skor
+    public float distanceStep = 1f;  // setiap 200 pixel = +1 skor
 
     private float lastX;               // posisi X terakhir dicatat
 
