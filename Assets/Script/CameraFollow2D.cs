@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
 
         Vector3 desired = target.position + offset;
         // Clamp the Y BEFORE pixel snapping
-        desired.y = Mathf.Clamp(desired.y, -0.50f, 3.0f);
+        desired.y = Mathf.Clamp(desired.y, 0.0f, 3.0f);
 
 
         // Convert world units to pixel units
