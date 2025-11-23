@@ -17,14 +17,17 @@ public class RocketController : MonoBehaviour
     private Rigidbody2D rb;
     private SlowManager slowManager;
     private RocketStats stats;
+    private RocketAnimationController animCtrl;
 
     private float fuel;
+    private bool grounded = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         slowManager = GetComponent<SlowManager>();
         stats = GetComponent<RocketStats>();
+        animCtrl = GetComponent<RocketAnimationController>();  // <-- added
 
         rb.gravityScale = gravityScale;
 
@@ -39,22 +42,34 @@ public class RocketController : MonoBehaviour
         float slow = (slowManager != null) ? slowManager.FinalMultiplier : 1f;
         bool holding = Input.GetMouseButton(0);
 
+        // BOOST
         if (holding && fuel > 0f)
         {
             Boost(slow);
-            Tilt(tiltUp);
+
+            if (!grounded)
+                Tilt(tiltUp);
+
             fuel -= stats.fuelBurnRate * Time.deltaTime;
+
+            if (animCtrl != null)
+                animCtrl.PlayBoost(true);       // <-- animate boost
         }
         else
         {
-            Tilt(tiltDown);
+            if (!grounded)
+                Tilt(tiltDown);
 
             if (fuel < stats.maxFuel)
                 fuel += stats.fuelRegenRate * Time.deltaTime;
+
+            if (animCtrl != null)
+                animCtrl.PlayBoost(false);      // <-- stop boost animation
         }
 
         fuel = Mathf.Clamp(fuel, 0, stats.maxFuel);
 
+        // Horizontal slow
         ApplyHorizontalSlow(slow);
 
         UpdateFuelUI();
@@ -77,7 +92,6 @@ public class RocketController : MonoBehaviour
         float hx = rb.velocity.x;
         float targetHx = hx * slow;
 
-        // smooth supaya tidak patah
         float finalHx = Mathf.Lerp(hx, targetHx, 6f * Time.deltaTime);
 
         rb.velocity = new Vector2(finalHx, rb.velocity.y);
@@ -101,9 +115,31 @@ public class RocketController : MonoBehaviour
             fuelSlider.value = fuel / stats.maxFuel;
     }
 
+    // ==========================
+    // GROUND DETECTION
+    // ==========================
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
+        {
+            grounded = true;
+
             rb.velocity *= stats.groundSpeedLoss;
+
+            // Stop animation saat nempel ground
+            if (animCtrl != null)
+                animCtrl.PlayBoost(false);
+
+            // Optional: reset rotation
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            grounded = false;
+        }
     }
 }
