@@ -3405,6 +3405,7 @@ GameObject:
   - component: {fileID: 958850482}
   - component: {fileID: 958850484}
   - component: {fileID: 958850483}
+  - component: {fileID: 958850485}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3682,6 +3683,109 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &958850485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958850473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3f77013fb4a9a242a2741ffe5f843ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceStep: 1
+--- !u!1 &980409500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 980409501}
+  - component: {fileID: 980409503}
+  - component: {fileID: 980409502}
+  m_Layer: 0
+  m_Name: Collide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &980409501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980409500}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1160003016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &980409502
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980409500}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -10.428463, y: 0.20249367}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.2149658, y: 11.225971}
+  m_EdgeRadius: 0
+--- !u!114 &980409503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980409500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa138f726bb77e43b97186867dd521f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &991621557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4145,7 +4249,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 980409501}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1160003017
@@ -5321,7 +5426,14 @@ MonoBehaviour:
   infiniteY: 0
   rows: 1
   cols: 3
-  spawnPrefabs: []
+  spawnPrefabs:
+  - {fileID: 3042365412360226700, guid: a2d8d0d29f3d49c44901545acfb5bef6, type: 3}
+  - {fileID: 3042365412360226700, guid: 64ff4829eb64b1f4687c12e198e69e62, type: 3}
+  - {fileID: 3042365412360226700, guid: 64ff4829eb64b1f4687c12e198e69e62, type: 3}
+  - {fileID: 3042365412360226700, guid: 0b5d78c51b9feff49acaf2fc4a2afd84, type: 3}
+  - {fileID: 3042365412360226700, guid: 01ddb40adcc4ad04a8c62ce460d8b407, type: 3}
+  - {fileID: 3042365412360226700, guid: d2d7293427633714eb5e6acd505d3234, type: 3}
+  - {fileID: 3042365412360226700, guid: c8d2c1cf8170cb540b5590d3f90e070b, type: 3}
   spawnCount: 3
   spawnMinY: -1.8
   spawnMaxY: 3.5

@@ -1201,6 +1201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903ad41cb275f1540b6d5dff98acb98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuelGauge: {fileID: 0}
+  needle: {fileID: 0}
   gravityScale: 0.2
   fuelSlider: {fileID: 1423892589}
   tiltUp: 20
