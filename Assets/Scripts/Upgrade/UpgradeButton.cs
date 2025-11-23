@@ -9,7 +9,7 @@ public class UpgradeEntry : MonoBehaviour
     public Button upgradeButton;
 
     public int maxLevel = 8;
-    public int baseCost = 100;
+    public int baseCost = 50;
 
     private void Start()
     {
