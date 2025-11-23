@@ -7,8 +7,6 @@ public class ShellManager : MonoBehaviour
 
     [Header("Shell Settings")]
     public int shell;
-
-    [Header("UI Reference")]
     public TMP_Text shellText;
 
     void Awake()
@@ -51,7 +49,7 @@ public class ShellManager : MonoBehaviour
     {
         if (shellText != null)
         {
-            shellText.text = "Shell: " + shell.ToString();
+            shellText.text = $"Shell: {shell}";
         }
     }
 
