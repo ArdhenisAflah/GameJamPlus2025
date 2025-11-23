@@ -7,8 +7,16 @@ public class StartMenuManager : MonoBehaviour
 
     private void Start()
     {
-        // Small delay prevents instant skipping when scene loads
+        // Delay untuk mencegah skip cepat
         Invoke(nameof(EnableStart), 0.5f);
+
+        // Load Semua Save
+        SaveSystem.Instance.RestoreSave();
+
+        Debug.Log("StartMenu Loaded | hasSeenOpeningCutscene = " +
+                  SaveSystem.Instance.hasSeenOpeningCutscene);
+
+        // Putar BGM
         GameAudioManager.Instance.PlayBGM("bgm1");
     }
 
@@ -21,17 +29,16 @@ public class StartMenuManager : MonoBehaviour
     {
         if (!canStart) return;
 
-        // Keyboard / Controller / Mouse / Touch
         if (Input.anyKeyDown ||
             Input.touchCount > 0 ||
             Input.GetMouseButtonDown(0))
         {
-            LoadGameplay();
+            LoadCorrectScene();
         }
     }
 
-    void LoadGameplay()
+    void LoadCorrectScene()
     {
-        SceneManager.LoadScene("Hans"); // Change to your Scene name
+            SceneManager.LoadScene("Opening Cutscene");
     }
 }

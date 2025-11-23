@@ -3,6 +3,8 @@ using System;
 [Serializable]
 public class SaveData
 {
+    public bool hasSeenOpeningCutscene;
+
     public int shell;
 
     public int levelLaunch = 1;
