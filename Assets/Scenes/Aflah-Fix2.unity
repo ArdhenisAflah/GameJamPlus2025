@@ -1395,7 +1395,7 @@ MonoBehaviour:
   upwardBoost: 384.2
   forwardBoost: 300
   maxFuel: 1
-  fuelBurnRate: 0.4
+  fuelBurnRate: 0
   fuelRegenRate: 0
   groundSpeedLoss: 0
   slowResistance: 0.6
