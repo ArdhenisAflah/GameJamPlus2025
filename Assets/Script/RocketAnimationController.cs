@@ -12,6 +12,8 @@ public class RocketAnimationController : MonoBehaviour
     private Animator activeSkinAnimator;
     private bool lastBoostStatus = false;
 
+    public ParticleSystem particleRocket;
+
     void Start()
     {
         InitSkin();
@@ -29,7 +31,7 @@ public class RocketAnimationController : MonoBehaviour
     }
 
     // ================ BOOST ANIMATION ================
-    public void PlayBoost(bool isBoosting)
+    public void PlayBoost(bool isBoosting, bool isStopEffect = true)
     {
         // Hindari spam (Animator ignore transition kalau dipanggil setiap frame)
         if (isBoosting == lastBoostStatus)
@@ -39,7 +41,20 @@ public class RocketAnimationController : MonoBehaviour
 
         // Parent
         if (driverAnimator != null)
+        {
             driverAnimator.SetBool("IsBoosting", isBoosting);
+
+            if (isStopEffect == true)
+            {
+                //play particle system here.
+                particleRocket.Play();
+            }
+            else
+            {
+                particleRocket.Stop();
+            }
+        }
+
 
         // Skin active
         if (activeSkinAnimator != null)

@@ -57,6 +57,8 @@ public class RocketController : MonoBehaviour
         }
         else
         {
+
+            animCtrl.PlayBoost(false, false);
             if (!grounded)
                 Tilt(tiltDown);
 
