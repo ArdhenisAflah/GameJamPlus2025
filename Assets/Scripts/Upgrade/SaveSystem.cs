@@ -6,12 +6,16 @@ public class SaveSystem : MonoBehaviour
     public static SaveSystem Instance;
     private string savePath;
 
+    // === FIRST PLAY FLAG ===
+    public bool hasSeenOpeningCutscene = false;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
             savePath = Path.Combine(Application.persistentDataPath, "save.json");
         }
         else
@@ -28,10 +32,13 @@ public class SaveSystem : MonoBehaviour
         SaveData data = new SaveData
         {
             levelLaunch = UpgradeManager.Instance.levelLaunch,
-            levelBoost  = UpgradeManager.Instance.levelBoost,
-            levelFuel   = UpgradeManager.Instance.levelFuel,
-            levelWall   = UpgradeManager.Instance.levelWall,
-            shell       = ShellManager.Instance.shell
+            levelBoost = UpgradeManager.Instance.levelBoost,
+            levelFuel = UpgradeManager.Instance.levelFuel,
+            levelWall = UpgradeManager.Instance.levelWall,
+            shell = ShellManager.Instance.shell,
+
+            // NEW: Save cutscene flag
+            hasSeenOpeningCutscene = hasSeenOpeningCutscene
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -54,7 +61,10 @@ public class SaveSystem : MonoBehaviour
         string json = File.ReadAllText(savePath);
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-        Debug.Log("Loaded save.json");
+        // Load the cutscene boolean safely
+        hasSeenOpeningCutscene = data.hasSeenOpeningCutscene;
+
+        Debug.Log("Loaded save.json | hasSeenOpeningCutscene = " + hasSeenOpeningCutscene);
         return data;
     }
 
@@ -64,7 +74,11 @@ public class SaveSystem : MonoBehaviour
     public SaveData RestoreSave()
     {
         SaveData data = Load();
-        if (data == null) return null;
+        if (data == null)
+        {
+            Debug.Log("No save found. Using default values.");
+            return null;
+        }
 
         // --- Restore Shell ---
         ShellManager.Instance?.LoadShellFromSave(data.shell);
@@ -73,9 +87,9 @@ public class SaveSystem : MonoBehaviour
         if (UpgradeManager.Instance != null)
         {
             UpgradeManager.Instance.levelLaunch = data.levelLaunch;
-            UpgradeManager.Instance.levelBoost  = data.levelBoost;
-            UpgradeManager.Instance.levelFuel   = data.levelFuel;
-            UpgradeManager.Instance.levelWall   = data.levelWall;
+            UpgradeManager.Instance.levelBoost = data.levelBoost;
+            UpgradeManager.Instance.levelFuel = data.levelFuel;
+            UpgradeManager.Instance.levelWall = data.levelWall;
         }
 
         // --- APPLY STATS DIRECTLY TO ROCKET ---
@@ -97,43 +111,37 @@ public class SaveSystem : MonoBehaviour
 
         // ========= APPLY MULTIPLIERS =========
         int Llaunch = UpgradeManager.Instance.levelLaunch - 1;
-        int Lboost  = UpgradeManager.Instance.levelBoost - 1;
-        int Lfuel   = UpgradeManager.Instance.levelFuel - 1;
-        int Lwall   = UpgradeManager.Instance.levelWall - 1;
+        int Lboost = UpgradeManager.Instance.levelBoost - 1;
+        int Lfuel = UpgradeManager.Instance.levelFuel - 1;
+        int Lwall = UpgradeManager.Instance.levelWall - 1;
 
         // Base values
-        float baseLaunchUp     = 6f;
-        float baseLaunchForward= 6f;
+        float baseLaunchUp = 6f;
+        float baseLaunchForward = 6f;
 
-        float baseBoostUp      = 300f;
+        float baseBoostUp = 300f;
         float baseBoostForward = 500f;
 
-        float baseFuel         = 1f;
+        float baseFuel = 1f;
 
-        float baseSlowResist   = 0f;
+        float baseSlowResist = 0f;
 
         // Per level adds
-        float launchUpPerLevel       = 0f;
-        float launchForwardPerLevel  = 6f;
-
-        float boostUpPerLevel        = 0f;
-        float boostForwardPerLevel   = 50f;
-
-        float fuelPerLevel           = 0.5f;
-
-        float slowResistPerLevel     = 0.1f;
+        float launchForwardPerLevel = 6f;
+        float boostForwardPerLevel = 50f;
+        float fuelPerLevel = 0.5f;
+        float slowResistPerLevel = 0.1f;
 
         // ========= APPLY VALUES =========
-        stats.launchUpwardForce  = baseLaunchUp     + (Llaunch * launchUpPerLevel);
-        stats.launchForwardForce = baseLaunchForward+ (Llaunch * launchForwardPerLevel);
+        stats.launchUpwardForce = baseLaunchUp;
+        stats.launchForwardForce = baseLaunchForward + (Llaunch * launchForwardPerLevel);
 
-        stats.upwardBoost        = baseBoostUp      + (Lboost * boostUpPerLevel);
-        stats.forwardBoost       = baseBoostForward + (Lboost * boostForwardPerLevel);
+        stats.upwardBoost = baseBoostUp;
+        stats.forwardBoost = baseBoostForward + (Lboost * boostForwardPerLevel);
 
-        stats.maxFuel            = baseFuel         + (Lfuel * fuelPerLevel);
+        stats.maxFuel = baseFuel + (Lfuel * fuelPerLevel);
 
-        stats.slowResistance     = baseSlowResist   + (Lwall * slowResistPerLevel);
-        stats.slowResistance     = Mathf.Clamp(stats.slowResistance, 0f, 1f);
+        stats.slowResistance = Mathf.Clamp(baseSlowResist + (Lwall * slowResistPerLevel), 0f, 1f);
 
         Debug.Log("🔥 Stats applied directly from SaveSystem");
     }
