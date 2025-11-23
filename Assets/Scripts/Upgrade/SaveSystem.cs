@@ -1,12 +1,10 @@
 using UnityEngine;
 using System.IO;
-using System.Collections.Generic;
 
 public class SaveSystem : MonoBehaviour
 {
     public static SaveSystem Instance;
     private string savePath;
-    [SerializeField] private List<GameObject> prefabDatabase;
 
     private void Awake()
     {
@@ -29,19 +27,17 @@ public class SaveSystem : MonoBehaviour
     {
         SaveData data = new SaveData
         {
-            levelLaunch = UpgradeManager.Instance != null ? UpgradeManager.Instance.levelLaunch : 0,
-            levelBoost = UpgradeManager.Instance != null ? UpgradeManager.Instance.levelBoost : 0,
-            levelFuel = UpgradeManager.Instance != null ? UpgradeManager.Instance.levelFuel : 0,
-            levelWall = UpgradeManager.Instance != null ? UpgradeManager.Instance.levelWall : 0,
-
-            shell = ShellManager.Instance != null ? ShellManager.Instance.shell : 0
+            levelLaunch = UpgradeManager.Instance.levelLaunch,
+            levelBoost  = UpgradeManager.Instance.levelBoost,
+            levelFuel   = UpgradeManager.Instance.levelFuel,
+            levelWall   = UpgradeManager.Instance.levelWall,
+            shell       = ShellManager.Instance.shell
         };
 
-        // Simpan ke file
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
 
-        Debug.Log($"Shell: {data.shell}");
+        Debug.Log("Saved game.");
     }
 
     // ====================
@@ -49,22 +45,17 @@ public class SaveSystem : MonoBehaviour
     // ====================
     public SaveData Load()
     {
-        if (File.Exists(savePath))
+        if (!File.Exists(savePath))
         {
-            string json = File.ReadAllText(savePath);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
-
-            if (ShellManager.Instance != null)
-            {
-                ShellManager.Instance.LoadShellFromSave(data.shell);
-            }
-
-            Debug.Log($"Loaded Global Save");
-            return data;
+            Debug.LogWarning("No Global Save file found.");
+            return null;
         }
 
-        Debug.LogWarning("No Global Save file found.");
-        return null;
+        string json = File.ReadAllText(savePath);
+        SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+        Debug.Log("Loaded save.json");
+        return data;
     }
 
     // ====================
@@ -75,13 +66,76 @@ public class SaveSystem : MonoBehaviour
         SaveData data = Load();
         if (data == null) return null;
 
-        // 🔹 Pulihkan stats shell
-        if (ShellManager.Instance != null)
+        // --- Restore Shell ---
+        ShellManager.Instance?.LoadShellFromSave(data.shell);
+
+        // --- Restore Upgrade Levels ---
+        if (UpgradeManager.Instance != null)
         {
-            ShellManager.Instance.LoadShellFromSave(data.shell);
+            UpgradeManager.Instance.levelLaunch = data.levelLaunch;
+            UpgradeManager.Instance.levelBoost  = data.levelBoost;
+            UpgradeManager.Instance.levelFuel   = data.levelFuel;
+            UpgradeManager.Instance.levelWall   = data.levelWall;
         }
 
+        // --- APPLY STATS DIRECTLY TO ROCKET ---
+        ApplyStatsToRocket();
+
+        Debug.Log("All upgrades restored and stats applied to Rocket!");
+
         return data;
+    }
+
+    private void ApplyStatsToRocket()
+    {
+        RocketStats stats = FindObjectOfType<RocketStats>();
+        if (stats == null)
+        {
+            Debug.LogWarning("RocketStats not found in scene!");
+            return;
+        }
+
+        // ========= APPLY MULTIPLIERS =========
+        int Llaunch = UpgradeManager.Instance.levelLaunch - 1;
+        int Lboost  = UpgradeManager.Instance.levelBoost - 1;
+        int Lfuel   = UpgradeManager.Instance.levelFuel - 1;
+        int Lwall   = UpgradeManager.Instance.levelWall - 1;
+
+        // Base values
+        float baseLaunchUp     = 6f;
+        float baseLaunchForward= 6f;
+
+        float baseBoostUp      = 300f;
+        float baseBoostForward = 500f;
+
+        float baseFuel         = 1f;
+
+        float baseSlowResist   = 0f;
+
+        // Per level adds
+        float launchUpPerLevel       = 0f;
+        float launchForwardPerLevel  = 6f;
+
+        float boostUpPerLevel        = 0f;
+        float boostForwardPerLevel   = 50f;
+
+        float fuelPerLevel           = 0.5f;
+
+        float slowResistPerLevel     = 0.1f;
+
+        // ========= APPLY VALUES =========
+        stats.launchUpwardForce  = baseLaunchUp     + (Llaunch * launchUpPerLevel);
+        stats.launchForwardForce = baseLaunchForward+ (Llaunch * launchForwardPerLevel);
+
+        stats.upwardBoost        = baseBoostUp      + (Lboost * boostUpPerLevel);
+        stats.forwardBoost       = baseBoostForward + (Lboost * boostForwardPerLevel);
+
+        stats.maxFuel            = baseFuel         + (Lfuel * fuelPerLevel);
+
+        stats.slowResistance     = baseSlowResist   + (Lwall * slowResistPerLevel);
+        stats.slowResistance     = Mathf.Clamp(stats.slowResistance, 0f, 1f);
+
+        Debug.Log("🔥 Stats applied directly from SaveSystem");
     }
 
     public void DeleteSave()
@@ -90,24 +144,6 @@ public class SaveSystem : MonoBehaviour
         {
             File.Delete(savePath);
             Debug.Log("Deleted Global Save.json");
-        }
-    }
-
-    public void DeleteAllSaves()
-    {
-        string dir = Application.persistentDataPath;
-        string[] files = Directory.GetFiles(dir, "save_*.json");
-
-        foreach (var file in files)
-        {
-            File.Delete(file);
-            Debug.Log($"Deleted: {Path.GetFileName(file)}");
-        }
-
-        if (File.Exists(savePath))
-        {
-            File.Delete(savePath);
-            Debug.Log("Deleted main save.json");
         }
     }
 }

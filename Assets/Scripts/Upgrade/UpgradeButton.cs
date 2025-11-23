@@ -8,8 +8,8 @@ public class UpgradeEntry : MonoBehaviour
     public TMP_Text levelText;
     public Button upgradeButton;
 
-    public int maxLevel = 5;
-    public int baseCost = 2;
+    public int maxLevel = 8;
+    public int baseCost = 100;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class UpgradeEntry : MonoBehaviour
 
     int GetCost()
     {
-        return baseCost * (GetCurrentLevel() + 1);
+        return baseCost * (GetCurrentLevel());
     }
 
     int GetCurrentLevel()
