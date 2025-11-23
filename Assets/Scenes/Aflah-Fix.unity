@@ -896,12 +896,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 697748084}
-  parallaxX: 1
+  parallaxX: 0.7
   parallaxY: 0.2
   infiniteX: 1
   infiniteY: 1
   rows: 1
-  cols: 1
+  cols: 3
 --- !u!1 &683958191
 GameObject:
   m_ObjectHideFlags: 0
