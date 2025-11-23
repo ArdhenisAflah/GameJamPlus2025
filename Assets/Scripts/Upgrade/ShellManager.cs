@@ -32,7 +32,7 @@ public class ShellManager : MonoBehaviour
     {
         shell += amount;
         UpdateShellUI();
-        SaveSystem.Instance?.Save(GameObject.FindGameObjectWithTag("Player").transform.position, 0);
+        SaveSystem.Instance?.Save();
     }
 
     public bool SpendShell(int amount)
@@ -41,7 +41,7 @@ public class ShellManager : MonoBehaviour
         {
             shell -= amount;
             UpdateShellUI();
-            SaveSystem.Instance?.Save(GameObject.FindGameObjectWithTag("Player").transform.position, 0);
+            SaveSystem.Instance?.Save();
             return true;
         }
         return false;

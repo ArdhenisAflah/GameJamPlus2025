@@ -1,15 +1,27 @@
 using System;
-using System.Collections.Generic;
 
 [Serializable]
 public class SaveData
 {
-    public string sceneName;
-    public string lastManaBlockID;
-    public float playerX, playerY;
-    public int mana;
-    public List<string> triggeredManaBlocks = new List<string>();
-    public int maxMana;
-    public int selectionLimit;
     public int shell;
+
+    public int levelLaunch = 1;
+    public int levelBoost = 1;
+    public int levelFuel = 1;
+    public int levelWall = 1;
+
+    public float upwardBoost = 30f;
+    public float forwardBoost = 6f;
+
+    public float maxFuel = 1f;
+    public float fuelBurnRate = 0.4f;
+    public float fuelRegenRate = 0f;
+
+    public float groundSpeedLoss = 0.5f;
+
+    public float slowResistance = 0f;
+
+    public float launchUpwardForce = 10f;
+    public float launchForwardForce = 4f;
+    public float launchControlDelay = 1f;   
 }
