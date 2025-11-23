@@ -79,22 +79,26 @@ public class PlayerGameOver : MonoBehaviour
 
     void LoadUpgrade()
     {
-        GameOverPanel.SetActive(false);
-        ShellsScore.SetActive(true);
-        Upgrades.SetActive(true);
-
-        // ================================
-        // CONVERT SCORE → SHELL
-        // ================================
-        if (ScorSystem.score > 0)
+        if (ScorSystem.score >= 1000)
         {
-            ShellManager.Instance.AddShell(ScorSystem.score);  // tambahkan ke shell
-            Debug.Log("Converted Score to Shell: +" + ScorSystem.score);
+            SceneManager.LoadScene("EndCutscene");
+        }
+        else
+        {
+            GameOverPanel.SetActive(false);
+            ShellsScore.SetActive(true);
+            Upgrades.SetActive(true);
 
-            ScorSystem.score = 0;  // reset score setelah ditukar
+            if (ScorSystem.score > 0)
+            {
+                ShellManager.Instance.AddShell(ScorSystem.score);  // tambahkan ke shell
+                Debug.Log("Converted Score to Shell: +" + ScorSystem.score);
+
+                ScorSystem.score = 0;  // reset score setelah ditukar
+            }
+
         }
 
-        // Kamu bisa save otomatis jika mau:
         SaveSystem.Instance?.Save();
     }
 }
