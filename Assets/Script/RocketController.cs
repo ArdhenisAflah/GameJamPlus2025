@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class RocketController : MonoBehaviour
 {
+    [Header("References")]
+    public FuelGauge fuelGauge;
+    public SpeedometerNeedle needle;
+
     [Header("Gravity / Drift")]
     public float gravityScale = 0.1f;
 
@@ -73,6 +77,9 @@ public class RocketController : MonoBehaviour
         ApplyHorizontalSlow(slow);
 
         UpdateFuelUI();
+
+        fuelGauge.UpdateFuel(fuel, stats.maxFuel);
+        needle.UpdateNeedle(rb.velocity.x);
     }
 
     // ==========================
