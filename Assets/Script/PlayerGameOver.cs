@@ -81,7 +81,7 @@ public class PlayerGameOver : MonoBehaviour
     {
         if (ScorSystem.score >= 3000)
         {
-            SceneManager.LoadScene("");
+            SceneManager.LoadScene("EndCutscene");
         }
         else
         {
