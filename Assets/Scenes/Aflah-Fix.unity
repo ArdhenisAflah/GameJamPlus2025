@@ -1330,8 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScale: 0.2
-  upwardBoost: 500
-  forwardBoost: 300
+  fuelSlider: {fileID: 0}
   tiltUp: 25
   tiltDown: -25
   tiltSpeed: 5
