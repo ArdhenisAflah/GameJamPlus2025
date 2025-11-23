@@ -9,8 +9,8 @@ public class UpgradeManager : MonoBehaviour
     public GameObject upgradePanel;
 
     [Header("Upgrade Settings")]
-    public int levelLaunch = 1;
     public int levelBoost = 1;
+    public int levelLaunch = 1;
     public int levelFuel = 1;
     public int levelWall = 1;
 
