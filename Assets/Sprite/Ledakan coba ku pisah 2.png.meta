@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c5ecbe9b9bee53043835da30292185b6
+guid: 0ada007c44b26fd4f919aade7e882ece
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,19 +94,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -136,202 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: explosion_64x64_longrow_0
-      rect:
-        serializedVersion: 2
-        x: 50
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83b707716e0f337498f08213227b4948
-      internalID: 1020064321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5a68578b67178b48bc2e8339aeb19b0
-      internalID: 1410962896
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_2
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe34a1178893e044a9d63efb3429e661
-      internalID: 859129714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_3
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 580cd40f0f072a64d9bc0a5f56d56d81
-      internalID: -1038274811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_4
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05f0cb37189e68c408016093ccc9c9ee
-      internalID: 1034451701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_5
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ec06bc11595d154082a634d42b91af9
-      internalID: 1698003968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_6
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6cea3a3fc5207a408c4ab69c6b740f1
-      internalID: 720387532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_7
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c159bb153d8f74d45b61654f78cda8ab
-      internalID: 2020773193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_8
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c792f741101a644b92241ac78ecc1ba
-      internalID: 1178121676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_9
+      name: Ledakan coba ku pisah 2_0
       rect:
         serializedVersion: 2
         x: 500
-        y: 14
-        width: 50
-        height: 50
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,209 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e71f550ef034bf4db86ea2ea844afd1
-      internalID: -1699356371
+      spriteID: e1ead15c725f01d4b84c788e70458379
+      internalID: 438784233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_10
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e53f8df2c2de834fb885f9151ea0138
-      internalID: 1588964692
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_11
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 312165bc9e3b32048b89819021d5e4d0
-      internalID: -607883596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_12
-      rect:
-        serializedVersion: 2
-        x: 650
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d6df62e66f0a244988c6ad895a88e67
-      internalID: 667979090
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_13
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 808e39c98cd19ca42a30895981b31413
-      internalID: 1745659010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_14
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35ac00c01c05d484fa3af8f171257873
-      internalID: -168495478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_15
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5c7ee40fa46d5d49bd677805576502e
-      internalID: 1410051795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_16
-      rect:
-        serializedVersion: 2
-        x: 850
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 512a82b8a1deb2144a7825c397e1a97a
-      internalID: 2058206678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_17
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b314dbab73f3e9a4aab6357b41a22662
-      internalID: 863529486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_18
-      rect:
-        serializedVersion: 2
-        x: 950
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5215f93beed40b3448e8d58eb4725c57
-      internalID: -1925882032
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_19
+      name: Ledakan coba ku pisah 2_1
       rect:
         serializedVersion: 2
         x: 1000
-        y: 14
-        width: 50
-        height: 50
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,209 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e164dccc0d73f4743b03da8db4dfa83a
-      internalID: 1612627650
+      spriteID: 922b00ec8a73b8444a1b2beaed7c3652
+      internalID: -1490417593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_20
-      rect:
-        serializedVersion: 2
-        x: 1050
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2bfcabd1669847540887a71290b1a7f1
-      internalID: -248197947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_21
-      rect:
-        serializedVersion: 2
-        x: 1100
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df13e2c9d1a378f4ab0b1e489f893a21
-      internalID: 1067312015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_22
-      rect:
-        serializedVersion: 2
-        x: 1150
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 679fd3de2b91c7a4e8dc1948a0e1a6db
-      internalID: 2114258720
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_23
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d6b25ea8e282054d94c7b99704fe35f
-      internalID: -1271685003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_24
-      rect:
-        serializedVersion: 2
-        x: 1250
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caa3d2100e7c4224d8d5d5e1b9a4b6e5
-      internalID: 2092239286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_25
-      rect:
-        serializedVersion: 2
-        x: 1300
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c0fdbcd842300f428e45f3a869390dc
-      internalID: -1985812337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_26
-      rect:
-        serializedVersion: 2
-        x: 1350
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b786f4b1690c8a408277091c252b1dc
-      internalID: 1872651553
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_27
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11a93f0d9b314be43b5eb122e310447b
-      internalID: 766654533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_28
-      rect:
-        serializedVersion: 2
-        x: 1450
-        y: 14
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b06de8457aa52ce4699b453cca57c910
-      internalID: 80396074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: explosion_64x64_longrow_29
+      name: Ledakan coba ku pisah 2_2
       rect:
         serializedVersion: 2
         x: 1500
-        y: 14
-        width: 50
-        height: 50
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -759,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e57939c5e61f6314f892394e2e5dd7dd
-      internalID: 962898745
+      spriteID: d6c75d0d169fee34c929a16ca1d36b07
+      internalID: 1128961758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_30
+      name: Ledakan coba ku pisah 2_3
       rect:
         serializedVersion: 2
-        x: 1550
-        y: 14
-        width: 50
-        height: 50
+        x: 2000
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -780,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae1e6d4df3604d4da9bd32b108cce69
-      internalID: -835612185
+      spriteID: 47e71d2971d8a6644aa5e29288d05b02
+      internalID: 596913631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_31
+      name: Ledakan coba ku pisah 2_4
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 14
-        width: 50
-        height: 50
+        x: 2500
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -801,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d90e606787d1aa4418beb3e5f3c40f5b
-      internalID: -1209912669
+      spriteID: 0cc18d55b4bf62343bdecf816450c8f6
+      internalID: -1398286262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_32
+      name: Ledakan coba ku pisah 2_5
       rect:
         serializedVersion: 2
-        x: 1650
-        y: 14
-        width: 50
-        height: 50
+        x: 3000
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -822,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20502697feb272942ab9adc5691a8b58
-      internalID: -274833375
+      spriteID: cf682ff2c3f21a74abd901a1887c606c
+      internalID: -1496421494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_33
+      name: Ledakan coba ku pisah 2_6
       rect:
         serializedVersion: 2
-        x: 1700
-        y: 14
-        width: 50
-        height: 50
+        x: 3500
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -843,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51ee04eea759a2b488edd516c9e34b84
-      internalID: -1933258329
+      spriteID: 1ec8a106d3fee7a44996d83f33b4a01a
+      internalID: -827035385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_34
+      name: Ledakan coba ku pisah 2_7
       rect:
         serializedVersion: 2
-        x: 1750
-        y: 14
-        width: 50
-        height: 50
+        x: 4000
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -864,20 +284,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae52467a489eb664f9d021f1d01863bf
-      internalID: 1343119984
+      spriteID: f19127fc8ed3c8d48a4573816cac4ce7
+      internalID: 895731181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_35
+      name: Ledakan coba ku pisah 2_8
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 14
-        width: 50
-        height: 50
+        x: 4500
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -885,20 +305,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 022577e0517a7ad44aa6d36b0374a7d9
-      internalID: 807342497
+      spriteID: 6d7f786d626650b47833d85ee277c657
+      internalID: -2080972739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_36
+      name: Ledakan coba ku pisah 2_9
       rect:
         serializedVersion: 2
-        x: 1850
-        y: 14
-        width: 50
-        height: 50
+        x: 5000
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -906,20 +326,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a9a57b84c88f840869433875003e38
-      internalID: -764582359
+      spriteID: 999d9631d5944b0498a44e121d4def90
+      internalID: -580780884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: explosion_64x64_longrow_37
+      name: Ledakan coba ku pisah 2_10
       rect:
         serializedVersion: 2
-        x: 1900
-        y: 14
-        width: 50
-        height: 50
+        x: 5500
+        y: 500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -927,8 +347,575 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1b61da8124db79478cf2f521df316af
-      internalID: -166842211
+      spriteID: 9635ea9139c18494a8147a0fe4bb2a79
+      internalID: 225180026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_11
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc17410661d78747a3011ff011dd5c2
+      internalID: 1832390019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_12
+      rect:
+        serializedVersion: 2
+        x: 6500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f43ca2048de17234da0375891dd9f187
+      internalID: -1902896677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_13
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0da04b3cdea9e44d98cae3516d59c02
+      internalID: 1546614142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_14
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1aa4fa83dd757248aeac3af5ccbb2e3
+      internalID: 155488922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_15
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af1f57277deac34ba3559a7993249be
+      internalID: 1118971396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_16
+      rect:
+        serializedVersion: 2
+        x: 8500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbbe0ce8e90018442b6ed12835d8a2ab
+      internalID: -1919078548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_17
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c510a93636b04a848ab8348e1e0ef0a2
+      internalID: -2123678770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f75bb086b5d3a43980e11f1765383b
+      internalID: -549026271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_19
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e64a9d46ba8534a8a0eed7c449760b
+      internalID: 82757381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_20
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e3fafef15fa5640baecf779d10befe
+      internalID: 1252691226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_21
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edaef6f1fd77f0143a73ccd095819c9c
+      internalID: 1592969719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_22
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb7bbcac2f1a3043a2c8a7975c564ef
+      internalID: -437973577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_23
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77308cbfaaf5d63418256c19cb1fc168
+      internalID: 1182369280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_24
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2bb235843b45fb46b0a69a4813dcf59
+      internalID: -23252336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_25
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdb3a16837c875440abd3c228c231f85
+      internalID: -658752993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_26
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4334568256b0784f9a1d104c72f0da4
+      internalID: -908764954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_27
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131391cf12e89a24ca5d119fd502e44a
+      internalID: 1255810269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_28
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f72ada82d97054694ca280b6b3ab20
+      internalID: 794573261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_29
+      rect:
+        serializedVersion: 2
+        x: 5500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7fb4f294b7faa4880757da9c36d666
+      internalID: 1815844158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_30
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee083f276bb7fa84194cae2b5f350852
+      internalID: -2008650872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_31
+      rect:
+        serializedVersion: 2
+        x: 6500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5db6634703a8a448e47d5530253587
+      internalID: 254875512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_32
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faf07993b4e337a499a213aea65a344e
+      internalID: 227382711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_33
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc1e1d4f714557c4d8548b80f1bdcd6d
+      internalID: 168906693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_34
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605ec4d19b937ad4286ef353aad9545c
+      internalID: 590035423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_35
+      rect:
+        serializedVersion: 2
+        x: 8500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244c2ed6abcb61b4bb987e47d3575914
+      internalID: 1976411810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_36
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5ad45814ab0c704686a5ef5dfe0af54
+      internalID: 1418182484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ledakan coba ku pisah 2_37
+      rect:
+        serializedVersion: 2
+        x: 9500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17624f6b89e2b443b905bce9800720d
+      internalID: -788994213
       vertices: []
       indices: 
       edges: []
@@ -944,44 +931,44 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      explosion_64x64_longrow_0: 1020064321
-      explosion_64x64_longrow_1: 1410962896
-      explosion_64x64_longrow_10: 1588964692
-      explosion_64x64_longrow_11: -607883596
-      explosion_64x64_longrow_12: 667979090
-      explosion_64x64_longrow_13: 1745659010
-      explosion_64x64_longrow_14: -168495478
-      explosion_64x64_longrow_15: 1410051795
-      explosion_64x64_longrow_16: 2058206678
-      explosion_64x64_longrow_17: 863529486
-      explosion_64x64_longrow_18: -1925882032
-      explosion_64x64_longrow_19: 1612627650
-      explosion_64x64_longrow_2: 859129714
-      explosion_64x64_longrow_20: -248197947
-      explosion_64x64_longrow_21: 1067312015
-      explosion_64x64_longrow_22: 2114258720
-      explosion_64x64_longrow_23: -1271685003
-      explosion_64x64_longrow_24: 2092239286
-      explosion_64x64_longrow_25: -1985812337
-      explosion_64x64_longrow_26: 1872651553
-      explosion_64x64_longrow_27: 766654533
-      explosion_64x64_longrow_28: 80396074
-      explosion_64x64_longrow_29: 962898745
-      explosion_64x64_longrow_3: -1038274811
-      explosion_64x64_longrow_30: -835612185
-      explosion_64x64_longrow_31: -1209912669
-      explosion_64x64_longrow_32: -274833375
-      explosion_64x64_longrow_33: -1933258329
-      explosion_64x64_longrow_34: 1343119984
-      explosion_64x64_longrow_35: 807342497
-      explosion_64x64_longrow_36: -764582359
-      explosion_64x64_longrow_37: -166842211
-      explosion_64x64_longrow_4: 1034451701
-      explosion_64x64_longrow_5: 1698003968
-      explosion_64x64_longrow_6: 720387532
-      explosion_64x64_longrow_7: 2020773193
-      explosion_64x64_longrow_8: 1178121676
-      explosion_64x64_longrow_9: -1699356371
+      Ledakan coba ku pisah 2_0: 438784233
+      Ledakan coba ku pisah 2_1: -1490417593
+      Ledakan coba ku pisah 2_10: 225180026
+      Ledakan coba ku pisah 2_11: 1832390019
+      Ledakan coba ku pisah 2_12: -1902896677
+      Ledakan coba ku pisah 2_13: 1546614142
+      Ledakan coba ku pisah 2_14: 155488922
+      Ledakan coba ku pisah 2_15: 1118971396
+      Ledakan coba ku pisah 2_16: -1919078548
+      Ledakan coba ku pisah 2_17: -2123678770
+      Ledakan coba ku pisah 2_18: -549026271
+      Ledakan coba ku pisah 2_19: 82757381
+      Ledakan coba ku pisah 2_2: 1128961758
+      Ledakan coba ku pisah 2_20: 1252691226
+      Ledakan coba ku pisah 2_21: 1592969719
+      Ledakan coba ku pisah 2_22: -437973577
+      Ledakan coba ku pisah 2_23: 1182369280
+      Ledakan coba ku pisah 2_24: -23252336
+      Ledakan coba ku pisah 2_25: -658752993
+      Ledakan coba ku pisah 2_26: -908764954
+      Ledakan coba ku pisah 2_27: 1255810269
+      Ledakan coba ku pisah 2_28: 794573261
+      Ledakan coba ku pisah 2_29: 1815844158
+      Ledakan coba ku pisah 2_3: 596913631
+      Ledakan coba ku pisah 2_30: -2008650872
+      Ledakan coba ku pisah 2_31: 254875512
+      Ledakan coba ku pisah 2_32: 227382711
+      Ledakan coba ku pisah 2_33: 168906693
+      Ledakan coba ku pisah 2_34: 590035423
+      Ledakan coba ku pisah 2_35: 1976411810
+      Ledakan coba ku pisah 2_36: 1418182484
+      Ledakan coba ku pisah 2_37: -788994213
+      Ledakan coba ku pisah 2_4: -1398286262
+      Ledakan coba ku pisah 2_5: -1496421494
+      Ledakan coba ku pisah 2_6: -827035385
+      Ledakan coba ku pisah 2_7: 895731181
+      Ledakan coba ku pisah 2_8: -2080972739
+      Ledakan coba ku pisah 2_9: -580780884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
