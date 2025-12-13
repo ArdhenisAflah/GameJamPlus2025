@@ -14,6 +14,7 @@ public class UpgradeEntry : MonoBehaviour
     private void Start()
     {
         UpdateUI();
+
         upgradeButton.onClick.AddListener(OnUpgradeButton);
     }
 
@@ -21,7 +22,23 @@ public class UpgradeEntry : MonoBehaviour
     {
         levelText.text = $"Level: {GetCurrentLevel()}/{maxLevel}";
 
-        upgradeButton.interactable = GetCurrentLevel() < maxLevel;
+        // upgradeButton.interactable = GetCurrentLevel() < maxLevel;
+    }
+
+    private void OnEnable()
+    {
+        int cost = GetCost();
+
+        if (ShellManager.Instance.CheckAvaiable(cost))
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.interactable = false;
+        }
     }
 
     void OnUpgradeButton()
@@ -49,9 +66,9 @@ public class UpgradeEntry : MonoBehaviour
         switch (upgradeType)
         {
             case UpgradeType.Launch: return UpgradeManager.Instance.levelLaunch;
-            case UpgradeType.Boost:  return UpgradeManager.Instance.levelBoost;
-            case UpgradeType.Fuel:   return UpgradeManager.Instance.levelFuel;
-            case UpgradeType.Wall:   return UpgradeManager.Instance.levelWall;
+            case UpgradeType.Boost: return UpgradeManager.Instance.levelBoost;
+            case UpgradeType.Fuel: return UpgradeManager.Instance.levelFuel;
+            case UpgradeType.Wall: return UpgradeManager.Instance.levelWall;
         }
 
         return 0;

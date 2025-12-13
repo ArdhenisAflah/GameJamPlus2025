@@ -7038,7 +7038,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 709346101}
   m_OnClick:
     m_PersistentCalls:
@@ -10492,7 +10492,7 @@ MonoBehaviour:
   levelText: {fileID: 1034878543}
   upgradeButton: {fileID: 709346100}
   maxLevel: 8
-  baseCost: 100
+  baseCost: 50
 --- !u!114 &1593915427
 MonoBehaviour:
   m_ObjectHideFlags: 0

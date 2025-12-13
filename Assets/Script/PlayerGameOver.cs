@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement; // kalau mau restart scene
@@ -19,6 +20,8 @@ public class PlayerGameOver : MonoBehaviour
     public GameObject Upgrades;
 
     private bool isGameOver = false;
+
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -88,6 +91,7 @@ public class PlayerGameOver : MonoBehaviour
             GameOverPanel.SetActive(false);
             ShellsScore.SetActive(true);
             Upgrades.SetActive(true);
+
         }
     }
 }
