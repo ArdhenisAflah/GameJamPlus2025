@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +27,16 @@ public class RocketController : MonoBehaviour
     private float fuel;
     private bool grounded = false;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         slowManager = GetComponent<SlowManager>();
         stats = GetComponent<RocketStats>();
         animCtrl = GetComponent<RocketAnimationController>();  // <-- added
+
+
 
         rb.gravityScale = gravityScale;
 

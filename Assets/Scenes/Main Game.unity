@@ -6088,6 +6088,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 1172819950}
   maxLevel: 8
   baseCost: 100
+  PassingGradeUpgradeUnlockItem: []
 --- !u!114 &338961702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6618,6 +6619,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &534656583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534656584}
+  m_Layer: 0
+  m_Name: RocketVisualCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &534656584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534656583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 958850478}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561499638
 GameObject:
   m_ObjectHideFlags: 0
@@ -6690,6 +6722,7 @@ GameObject:
   - component: {fileID: 575689003}
   - component: {fileID: 575689004}
   - component: {fileID: 575689005}
+  - component: {fileID: 575689006}
   m_Layer: 0
   m_Name: botool
   m_TagString: Untagged
@@ -6785,6 +6818,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &575689006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575689002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a89d8b0f923bc4084fb3fbfe3a6f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeToWatch: 1
+  visualUpgrades:
+  - requiredLevel: 4
+    objectsToActivate:
+    - {fileID: 991621557}
+    objectsToDisable:
+    - {fileID: 1106236445}
+    - {fileID: 575689002}
+  - requiredLevel: 8
+    objectsToActivate:
+    - {fileID: 1106236445}
+    objectsToDisable:
+    - {fileID: 991621557}
+    - {fileID: 575689002}
 --- !u!1 &588284580
 GameObject:
   m_ObjectHideFlags: 0
@@ -7726,6 +7785,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 275190598}
   maxLevel: 8
   baseCost: 100
+  PassingGradeUpgradeUnlockItem: []
 --- !u!114 &942485801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,6 +8060,7 @@ Transform:
   - {fileID: 991621558}
   - {fileID: 1106236446}
   - {fileID: 129030556}
+  - {fileID: 534656584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &958850479
@@ -9091,6 +9152,7 @@ GameObject:
   - component: {fileID: 1106236446}
   - component: {fileID: 1106236448}
   - component: {fileID: 1106236447}
+  - component: {fileID: 1106236449}
   m_Layer: 0
   m_Name: Torpedo
   m_TagString: Untagged
@@ -9186,6 +9248,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1106236449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106236445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a89d8b0f923bc4084fb3fbfe3a6f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeToWatch: 1
+  visualUpgrades:
+  - requiredLevel: 8
+    objectsToActivate:
+    - {fileID: 1106236445}
+    objectsToDisable:
+    - {fileID: 991621557}
+    - {fileID: 575689002}
+  - requiredLevel: 4
+    objectsToActivate:
+    - {fileID: 991621557}
+    objectsToDisable:
+    - {fileID: 1106236445}
+    - {fileID: 575689002}
+  - requiredLevel: 0
+    objectsToActivate:
+    - {fileID: 575689002}
+    objectsToDisable:
+    - {fileID: 991621557}
+    - {fileID: 1106236445}
 --- !u!1 &1160003015
 GameObject:
   m_ObjectHideFlags: 0
@@ -10493,6 +10587,13 @@ MonoBehaviour:
   upgradeButton: {fileID: 709346100}
   maxLevel: 8
   baseCost: 50
+  PassingGradeUpgradeUnlockItem:
+  - level: 4
+    unlockItem: {fileID: 991621557}
+    disableItem: {fileID: 575689002}
+  - level: 8
+    unlockItem: {fileID: 1106236445}
+    disableItem: {fileID: 991621557}
 --- !u!114 &1593915427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12233,6 +12334,7 @@ MonoBehaviour:
   upgradeButton: {fileID: 717573359}
   maxLevel: 8
   baseCost: 100
+  PassingGradeUpgradeUnlockItem: []
 --- !u!114 &2083561887
 MonoBehaviour:
   m_ObjectHideFlags: 0

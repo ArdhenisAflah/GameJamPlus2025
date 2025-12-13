@@ -94,6 +94,14 @@ public class PlayerGameOver : MonoBehaviour
 
         }
 
+        if (ScorSystem.score > 0)
+        {
+            ShellManager.Instance.AddShell(ScorSystem.score);  // tambahkan ke shell
+            Debug.Log("Converted Score to Shell: +" + ScorSystem.score);
+
+            ScorSystem.score = 0;  // reset score setelah ditukar
+        }
+
         SaveSystem.Instance?.Save();
     }
 }
