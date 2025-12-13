@@ -82,7 +82,7 @@ public class PlayerGameOver : MonoBehaviour
 
     void LoadUpgrade()
     {
-        if (ScorSystem.score >= 3000)
+        if (ScorSystem.score >= 1000)
         {
             SceneManager.LoadScene("EndCutscene");
         }
@@ -93,5 +93,7 @@ public class PlayerGameOver : MonoBehaviour
             Upgrades.SetActive(true);
 
         }
+
+        SaveSystem.Instance?.Save();
     }
 }
