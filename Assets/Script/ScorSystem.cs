@@ -23,7 +23,7 @@ public class ScorSystem : MonoBehaviour
             score += gained;
 
             lastX += gained * distanceStep;
-            Debug.LogError(score);
+            // Debug.LogError(score);
         }
     }
 }

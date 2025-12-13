@@ -8,16 +8,13 @@ public class CameraFollow : MonoBehaviour
     // script kontol pembikin jitter
     public float pixelsPerUnit = 100f;
 
-    void LateUpdate()
+    void Update()
     {
         if (target == null) return;
-
-
 
         Vector3 desired = target.position + offset;
         // Clamp the Y BEFORE pixel snapping
         desired.y = Mathf.Clamp(desired.y, 0.0f, 3.0f);
-
 
         // Convert world units to pixel units
         float unit = 1f / pixelsPerUnit;

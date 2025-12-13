@@ -348,7 +348,6 @@ public class ParallaxGrid : MonoBehaviour
                 if (infiniteX)
                 {
                     float dx = camPos.x - tile.position.x;
-
                     if (Mathf.Abs(dx) > tileWidth * 1.5f)
                     {
                         float offset = Mathf.Sign(dx) * tileWidth * cols;

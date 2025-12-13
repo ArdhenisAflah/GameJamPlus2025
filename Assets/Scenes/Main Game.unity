@@ -7800,8 +7800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1160003016}
-  parallaxX: 0.6
-  parallaxY: 0.2
+  parallaxX: 0.8
+  parallaxY: 0
   infiniteX: 1
   infiniteY: 1
   rows: 1

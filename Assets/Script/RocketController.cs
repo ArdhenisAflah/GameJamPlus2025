@@ -80,8 +80,8 @@ public class RocketController : MonoBehaviour
 
         UpdateFuelUI();
 
-        fuelGauge.UpdateFuel(fuel, stats.maxFuel);
-        needle.UpdateNeedle(rb.velocity.x);
+        fuelGauge?.UpdateFuel(fuel, stats.maxFuel);
+        needle?.UpdateNeedle(rb.velocity.x);
     }
 
     // ==========================
