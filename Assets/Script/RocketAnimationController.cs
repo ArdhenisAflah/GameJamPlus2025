@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RocketAnimationController : MonoBehaviour
@@ -7,27 +9,42 @@ public class RocketAnimationController : MonoBehaviour
 
     [Header("Rocket Skins (Child)")]
     public GameObject[] skins;
-    public int selectedSkin = 0;
+
 
     private Animator activeSkinAnimator;
     private bool lastBoostStatus = false;
 
     public ParticleSystem particleRocket;
 
-    void Start()
+
+
+
+    [System.Serializable]
+    public struct VisualGradeNode
     {
-        InitSkin();
+        public int requiredLevel;
+        public GameObject[] objectsToActivate;
+        public GameObject[] objectsToDisable;
     }
+
+    [Header("Settings")]
+    public UpgradeType typeToWatch = UpgradeType.Boost;
+
+    [SerializeField]
+    public List<VisualGradeNode> visualUpgrades = new List<VisualGradeNode>();
+
+    int currentLevel;
+
+    int currentSkin;
+
 
     // ================ INIT SKIN ================
     void InitSkin()
     {
-        for (int i = 0; i < skins.Length; i++)
-            skins[i].SetActive(false);
 
-        skins[selectedSkin].SetActive(true);
+        activeSkinAnimator = skins[currentSkin].GetComponent<Animator>();
 
-        activeSkinAnimator = skins[selectedSkin].GetComponent<Animator>();
+        Debug.LogWarning("AKU PAKE " + currentSkin);
     }
 
     // ================ BOOST ANIMATION ================
@@ -59,5 +76,67 @@ public class RocketAnimationController : MonoBehaviour
         // Skin active
         if (activeSkinAnimator != null)
             activeSkinAnimator.SetBool("IsBoosting", isBoosting);
+    }
+
+
+    IEnumerator GetDataAfterX()
+    {
+        yield return new WaitForSeconds(0.5f);
+        RefreshVisuals();
+        InitSkin();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(GetDataAfterX());
+    }
+
+
+    int GetCurrentLevelFromManager()
+    {
+        if (UpgradeManager.Instance == null) return 1;
+
+        switch (typeToWatch)
+        {
+            case UpgradeType.Launch: return UpgradeManager.Instance.levelLaunch;
+            case UpgradeType.Boost: return UpgradeManager.Instance.levelBoost;
+            case UpgradeType.Fuel: return UpgradeManager.Instance.levelFuel;
+            case UpgradeType.Wall: return UpgradeManager.Instance.levelWall;
+            default: return 1;
+        }
+    }
+
+
+    public void RefreshVisuals()
+    {
+        currentLevel = GetCurrentLevelFromManager();
+
+
+        // Nyalakan yang baru
+        Debug.LogWarning(currentLevel);
+
+        for (int i = 0; i < visualUpgrades.Count; i++)
+        {
+            // Nyalakan yang baru
+            if (currentLevel >= visualUpgrades[i].requiredLevel)
+            {
+
+                foreach (var obj in visualUpgrades[i].objectsToActivate)
+                {
+                    if (obj != null)
+                    {
+                        currentSkin = i;
+                        obj.SetActive(true);
+                    }
+                }
+
+                // Matikan yang lama
+                foreach (var obj in visualUpgrades[i].objectsToDisable)
+                {
+                    if (obj != null) obj.SetActive(false);
+                }
+                return;
+            }
+        }
     }
 }

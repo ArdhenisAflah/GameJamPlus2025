@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using System.Collections;
 
 public class RocketVisual : MonoBehaviour
 {
@@ -19,21 +21,30 @@ public class RocketVisual : MonoBehaviour
     public List<VisualGradeNode> visualUpgrades = new List<VisualGradeNode>();
 
 
+
+
+
     public void RefreshVisuals()
     {
-
         int currentLevel = GetCurrentLevelFromManager();
 
 
-        for (int i = visualUpgrades.Count - 1; i >= 0; i--)
-        {
+        // Nyalakan yang baru
+        Debug.LogWarning(currentLevel);
 
+        for (int i = 0; i < visualUpgrades.Count; i++)
+        {
+            // Nyalakan yang baru
             if (currentLevel >= visualUpgrades[i].requiredLevel)
             {
-                // Nyalakan yang baru
+
                 foreach (var obj in visualUpgrades[i].objectsToActivate)
                 {
-                    if (obj != null) obj.SetActive(true);
+                    if (obj != null)
+                    {
+
+                        obj.SetActive(true);
+                    }
                 }
 
                 // Matikan yang lama
@@ -41,15 +52,21 @@ public class RocketVisual : MonoBehaviour
                 {
                     if (obj != null) obj.SetActive(false);
                 }
-
-                
+                return;
             }
         }
     }
 
+    IEnumerator GetDataAfterX()
+    {
+        yield return new WaitForSeconds(0.5f);
+        RefreshVisuals();
+
+    }
+
     private void OnEnable()
     {
-        RefreshVisuals();
+        StartCoroutine(GetDataAfterX());
     }
 
     int GetCurrentLevelFromManager()
