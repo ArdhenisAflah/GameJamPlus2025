@@ -6761,7 +6761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &575689003
 Transform:
   m_ObjectHideFlags: 0
@@ -8159,7 +8159,6 @@ MonoBehaviour:
   - {fileID: 1106236445}
   - {fileID: 991621557}
   - {fileID: 575689002}
-  selectedSkin: 2
   particleRocket: {fileID: 129030554}
   typeToWatch: 1
   visualUpgrades:

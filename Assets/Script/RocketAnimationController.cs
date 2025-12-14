@@ -42,7 +42,11 @@ public class RocketAnimationController : MonoBehaviour
     void InitSkin()
     {
 
-        activeSkinAnimator = skins[currentSkin].GetComponent<Animator>();
+        if (skins[currentSkin].TryGetComponent<Animator>(out var anim))
+        {
+            activeSkinAnimator = anim;
+        }
+
 
         Debug.LogWarning("AKU PAKE " + currentSkin);
     }
@@ -78,20 +82,31 @@ public class RocketAnimationController : MonoBehaviour
             activeSkinAnimator.SetBool("IsBoosting", isBoosting);
     }
 
-
-    IEnumerator GetDataAfterX()
+    private void OnEnable()
     {
-        yield return new WaitForSeconds(0.5f);
+        UpgradeManager.OnLoaded += HandleLoaded;
+    }
+
+    private void OnDisable()
+    {
+        UpgradeManager.OnLoaded -= HandleLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        UpgradeManager.OnLoaded -= HandleLoaded; // double safety
+    }
+
+    private void HandleLoaded()
+    {
         RefreshVisuals();
         InitSkin();
     }
-
-    private void OnEnable()
+    void HandleApplied()
     {
-        StartCoroutine(GetDataAfterX());
+        RefreshVisuals();
+        InitSkin();
     }
-
-
     int GetCurrentLevelFromManager()
     {
         if (UpgradeManager.Instance == null) return 1;
@@ -120,12 +135,11 @@ public class RocketAnimationController : MonoBehaviour
             // Nyalakan yang baru
             if (currentLevel >= visualUpgrades[i].requiredLevel)
             {
-
+                currentSkin = i;
                 foreach (var obj in visualUpgrades[i].objectsToActivate)
                 {
                     if (obj != null)
                     {
-                        currentSkin = i;
                         obj.SetActive(true);
                     }
                 }
