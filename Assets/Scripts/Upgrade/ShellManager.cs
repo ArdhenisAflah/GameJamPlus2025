@@ -45,6 +45,16 @@ public class ShellManager : MonoBehaviour
         return false;
     }
 
+    public bool CheckAvaiable(int amount)
+    {
+        if (shell >= amount)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
     void UpdateShellUI()
     {
         if (shellText != null)

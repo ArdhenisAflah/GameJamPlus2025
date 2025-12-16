@@ -9,7 +9,7 @@ public class IkanMatiAfterXsecond : MonoBehaviour
 
         if (other.gameObject.tag == "obstacles")
         {
-            Debug.Log("ss");
+            Debug.Log("ikan mati");
             Destroy(other.gameObject);
         }
 

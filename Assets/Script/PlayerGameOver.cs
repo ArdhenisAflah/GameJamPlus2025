@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement; // kalau mau restart scene
@@ -19,6 +20,8 @@ public class PlayerGameOver : MonoBehaviour
     public GameObject Upgrades;
 
     private bool isGameOver = false;
+
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -89,14 +92,14 @@ public class PlayerGameOver : MonoBehaviour
             ShellsScore.SetActive(true);
             Upgrades.SetActive(true);
 
-            if (ScorSystem.score > 0)
-            {
-                ShellManager.Instance.AddShell(ScorSystem.score);  // tambahkan ke shell
-                Debug.Log("Converted Score to Shell: +" + ScorSystem.score);
+        }
 
-                ScorSystem.score = 0;  // reset score setelah ditukar
-            }
+        if (ScorSystem.score > 0)
+        {
+            ShellManager.Instance.AddShell(ScorSystem.score);  // tambahkan ke shell
+            Debug.Log("Converted Score to Shell: +" + ScorSystem.score);
 
+            ScorSystem.score = 0;  // reset score setelah ditukar
         }
 
         SaveSystem.Instance?.Save();

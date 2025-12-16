@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
+
 
 public class UpgradeEntry : MonoBehaviour
 {
@@ -11,17 +13,77 @@ public class UpgradeEntry : MonoBehaviour
     public int maxLevel = 8;
     public int baseCost = 50;
 
+    [System.Serializable]
+    public struct SerializableNode
+    {
+        public int level;
+        public GameObject unlockItem;
+        public GameObject disableItem;
+    }
+
+    [SerializeField]
+    public List<SerializableNode> PassingGradeUpgradeUnlockItem = new List<SerializableNode>();
+
+
+    public static UpgradeEntry Instance;
     private void Start()
     {
         UpdateUI();
+
         upgradeButton.onClick.AddListener(OnUpgradeButton);
     }
 
     void UpdateUI()
     {
         levelText.text = $"Level: {GetCurrentLevel()}/{maxLevel}";
+        int cost = GetCost();
 
-        upgradeButton.interactable = GetCurrentLevel() < maxLevel;
+        //always check for level reaching
+        ReachingLevelUnlock();
+        if (ShellManager.Instance.CheckAvaiable(cost))
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.interactable = false;
+        }
+        // upgradeButton.interactable = GetCurrentLevel() < maxLevel;
+    }
+
+
+    public void ReachingLevelUnlock()
+    {
+        foreach (SerializableNode sn in PassingGradeUpgradeUnlockItem)
+        {
+            //check apakah level saat ini tidak cocok untuk membuka item yang diperlukan....
+            if (GetCurrentLevel() == sn.level)
+            {
+                sn.disableItem.SetActive(false);
+                //unlock that element.
+                sn.unlockItem.SetActive(true);
+            }
+        }
+    }
+
+
+
+    private void OnEnable()
+    {
+        int cost = GetCost();
+
+        if (ShellManager.Instance.CheckAvaiable(cost))
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.interactable = true;
+        }
+        else
+        {
+            upgradeButton.gameObject.SetActive(true);
+            upgradeButton.interactable = false;
+        }
     }
 
     void OnUpgradeButton()
@@ -36,6 +98,7 @@ public class UpgradeEntry : MonoBehaviour
         else
         {
             Debug.Log("Not enough Shell!");
+            UpdateUI();
         }
     }
 
@@ -49,9 +112,9 @@ public class UpgradeEntry : MonoBehaviour
         switch (upgradeType)
         {
             case UpgradeType.Launch: return UpgradeManager.Instance.levelLaunch;
-            case UpgradeType.Boost:  return UpgradeManager.Instance.levelBoost;
-            case UpgradeType.Fuel:   return UpgradeManager.Instance.levelFuel;
-            case UpgradeType.Wall:   return UpgradeManager.Instance.levelWall;
+            case UpgradeType.Boost: return UpgradeManager.Instance.levelBoost;
+            case UpgradeType.Fuel: return UpgradeManager.Instance.levelFuel;
+            case UpgradeType.Wall: return UpgradeManager.Instance.levelWall;
         }
 
         return 0;

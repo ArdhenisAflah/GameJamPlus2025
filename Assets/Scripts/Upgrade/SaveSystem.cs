@@ -86,10 +86,12 @@ public class SaveSystem : MonoBehaviour
         // --- Restore Upgrade Levels ---
         if (UpgradeManager.Instance != null)
         {
-            UpgradeManager.Instance.levelLaunch = data.levelLaunch;
-            UpgradeManager.Instance.levelBoost = data.levelBoost;
-            UpgradeManager.Instance.levelFuel = data.levelFuel;
-            UpgradeManager.Instance.levelWall = data.levelWall;
+            // UpgradeManager.Instance.levelLaunch = data.levelLaunch;
+            // UpgradeManager.Instance.levelBoost = data.levelBoost;
+            // UpgradeManager.Instance.levelFuel = data.levelFuel;
+            // UpgradeManager.Instance.levelWall = data.levelWall;
+
+            UpgradeManager.Instance.ApplyFromSave(data);
         }
 
         // --- APPLY STATS DIRECTLY TO ROCKET ---
