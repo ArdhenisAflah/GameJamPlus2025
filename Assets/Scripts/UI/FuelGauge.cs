@@ -3,10 +3,24 @@ using UnityEngine.UI;
 
 public class FuelGauge : MonoBehaviour
 {
-    public Image fullGauge;
+    [Header("References")]
+    public Image fuelFillImage;
 
-    public void UpdateFuel(float currentFuel, float maxFuel)
+    [Header("Fuel Settings")]
+    public float maxFuel = 100f;
+    public float currentFuel = 100f;
+
+    void Start()
     {
-        fullGauge.fillAmount = Mathf.Clamp01(currentFuel / maxFuel);
+        UpdateFuel(maxFuel, maxFuel);
+    }
+
+    public void UpdateFuel(float fuel, float newMaxFuel)
+    {
+        currentFuel = Mathf.Clamp(fuel, 0, newMaxFuel);
+
+        float fillAmount = currentFuel / newMaxFuel;
+
+        fuelFillImage.fillAmount = fillAmount;
     }
 }

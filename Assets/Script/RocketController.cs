@@ -5,7 +5,7 @@ public class RocketController : MonoBehaviour
 {
     [Header("References")]
     public FuelGauge fuelGauge;
-    public SpeedometerNeedle needle;
+    public Speedometer needle;
 
     [Header("Gravity / Drift")]
     public float gravityScale = 0.1f;
