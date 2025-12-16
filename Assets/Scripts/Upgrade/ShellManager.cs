@@ -59,7 +59,7 @@ public class ShellManager : MonoBehaviour
     {
         if (shellText != null)
         {
-            shellText.text = $"Shell: {shell}";
+            shellText.text = $"{shell}";
         }
     }
 
