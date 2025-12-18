@@ -22,6 +22,8 @@ public class PlayerGameOver : MonoBehaviour
     private bool isGameOver = false;
 
 
+    private RocketController controller;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -30,6 +32,7 @@ public class PlayerGameOver : MonoBehaviour
     private void Start()
     {
         panelover = GameOverPanel.transform.GetChild(2);
+        controller = GetComponent<RocketController>();
     }
     void Update()
     {
@@ -88,6 +91,11 @@ public class PlayerGameOver : MonoBehaviour
         }
         else
         {
+            //doing stop control.
+            if (controller != null)
+            {
+                controller.enabled = false;
+            }
             GameOverPanel.SetActive(false);
             ShellsScore.SetActive(true);
             Upgrades.SetActive(true);
