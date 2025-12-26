@@ -8,10 +8,15 @@ public class Speedometer : MonoBehaviour
     public RectTransform needle;
 
     [Header("Speed Settings")]
-    public float maxSpeed = 200f;
-    public float minAngle = -90f;
-    public float maxAngle = 90f;
+    public float maxSpeed = 100f;
+    public float minAngle = 45f;
+    public float maxAngle = -45f;
     private float currentSpeed;
+
+    void Start()
+    {
+        UpdateNeedle(0f);
+    }
 
     public void UpdateNeedle(float speed)
     {
