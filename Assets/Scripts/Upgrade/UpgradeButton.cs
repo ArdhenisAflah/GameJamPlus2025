@@ -1,7 +1,7 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System.Collections.Generic;
 
 public class UpgradeEntry : MonoBehaviour
 {
@@ -20,15 +20,15 @@ public class UpgradeEntry : MonoBehaviour
     public struct SerializableNode
     {
         public int level;
-        public GameObject unlockItem;
-        public GameObject disableItem;
+        public GameObject[] unlockItem;
+        public GameObject[] disableItem;
     }
 
     [SerializeField]
     public List<SerializableNode> PassingGradeUpgradeUnlockItem = new List<SerializableNode>();
 
     public static UpgradeEntry Instance;
-    
+
     private void Start()
     {
         if (levelSlider != null)
@@ -36,16 +36,43 @@ public class UpgradeEntry : MonoBehaviour
             levelSlider.SetMaxLevel(maxLevel);
             levelSlider.SetLevelInstant(GetCurrentLevel());
         }
-        
+
         UpdateUI();
-        upgradeButton.onClick.AddListener(OnUpgradeButton);
+        if (upgradeButton != null)
+        {
+            upgradeButton.onClick.AddListener(OnUpgradeButton);
+        }
     }
 
-    void UpdateUI()
+    private void OnEnable()
+    {
+        // Berlangganan event perubahan shell dari ShellManager
+        ShellManager.OnShellChanged += HandleShellChanged;
+
+        UpdateUI();
+    }
+
+    private void OnDisable()
+    {
+        // Berhenti berlangganan saat disabled untuk mencegah memory leak
+        ShellManager.OnShellChanged -= HandleShellChanged;
+    }
+
+    private void HandleShellChanged(int currentShells)
+    {
+        // Refresh UI & status tombol saat jumlah shell berubah
+        UpdateUI();
+    }
+
+    public void UpdateUI()
     {
         int currentLevel = GetCurrentLevel();
-        levelText.text = $"{currentLevel}/{maxLevel}";
         int cost = GetCost();
+
+        if (levelText != null)
+        {
+            levelText.text = $"{currentLevel}/{maxLevel}";
+        }
 
         if (levelSlider != null)
         {
@@ -56,85 +83,65 @@ public class UpgradeEntry : MonoBehaviour
         {
             if (currentLevel < maxLevel)
             {
-                costText.text = $"Cost: {cost.ToString()}"; 
+                costText.text = $"Cost: {cost}";
             }
             else
             {
-                costText.text = "Cost: MAX"; 
+                costText.text = "Cost: MAX";
             }
         }
 
         ReachingLevelUnlock();
-        
-        if (ShellManager.Instance.CheckAvaiable(cost))
+
+        // Update status interactable tombol berdasarkan kecukupan shell & max level
+        if (upgradeButton != null)
         {
             upgradeButton.gameObject.SetActive(true);
-            upgradeButton.interactable = currentLevel < maxLevel;
-        }
-        else
-        {
-            upgradeButton.gameObject.SetActive(true);
-            upgradeButton.interactable = false;
+
+            bool canAfford = ShellManager.Instance != null && ShellManager.Instance.CheckAvaiable(cost);
+            bool isNotMaxLevel = currentLevel < maxLevel;
+
+            upgradeButton.interactable = isNotMaxLevel && canAfford;
         }
     }
 
     public void ReachingLevelUnlock()
     {
-        foreach (SerializableNode sn in PassingGradeUpgradeUnlockItem)
-        {
-            if (GetCurrentLevel() == sn.level)
-            {
-                if (sn.disableItem != null)
-                    sn.disableItem.SetActive(false);
-                
-                if (sn.unlockItem != null)
-                    sn.unlockItem.SetActive(true);
-            }
-        }
-    }
-
-    private void OnEnable()
-    {
-        int cost = GetCost();
         int currentLevel = GetCurrentLevel();
 
-        if (levelSlider != null)
+        foreach (SerializableNode sn in PassingGradeUpgradeUnlockItem)
         {
-            levelSlider.SetLevelInstant(currentLevel);
-        }
-
-        if (costText != null)
-        {
-            if (currentLevel < maxLevel)
+            if (currentLevel >= sn.level)
             {
-                costText.text = cost.ToString();
-            }
-            else
-            {
-                costText.text = "MAX";
-            }
-        }
+                if (sn.disableItem != null)
+                {
+                    foreach (GameObject itemDisable in sn.disableItem)
+                    {
+                        if (itemDisable != null)
+                            itemDisable.SetActive(false);
+                    }
+                }
 
-        if (ShellManager.Instance.CheckAvaiable(cost))
-        {
-            upgradeButton.gameObject.SetActive(true);
-            upgradeButton.interactable = currentLevel < maxLevel;
-        }
-        else
-        {
-            upgradeButton.gameObject.SetActive(true);
-            upgradeButton.interactable = false;
+                if (sn.unlockItem != null)
+                {
+                    foreach (GameObject itemEnable in sn.unlockItem)
+                    {
+                        if (itemEnable != null)
+                            itemEnable.SetActive(true);
+                    }
+                }
+            }
         }
     }
 
-    void OnUpgradeButton()
+    private void OnUpgradeButton()
     {
         int cost = GetCost();
 
-        if (ShellManager.Instance.SpendShell(cost))
+        if (ShellManager.Instance != null && ShellManager.Instance.SpendShell(cost))
         {
             ApplyUpgrade();
-            UpdateUI();
+            UpdateUI(); // Refresh state tombol ini (level bertambah, cost naik, dan cek affordability)
         }
         else
         {
@@ -150,6 +157,8 @@ public class UpgradeEntry : MonoBehaviour
 
     int GetCurrentLevel()
     {
+        if (UpgradeManager.Instance == null) return 1;
+
         switch (upgradeType)
         {
             case UpgradeType.Launch: return UpgradeManager.Instance.levelLaunch;
@@ -163,6 +172,8 @@ public class UpgradeEntry : MonoBehaviour
 
     void ApplyUpgrade()
     {
+        if (UpgradeManager.Instance == null) return;
+
         switch (upgradeType)
         {
             case UpgradeType.Launch:

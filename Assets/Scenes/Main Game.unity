@@ -5520,7 +5520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &207961330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7096,7 +7096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7262,12 +7262,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.832
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -7720,12 +7720,27 @@ MonoBehaviour:
   maxLevel: 8
   baseCost: 100
   PassingGradeUpgradeUnlockItem:
+  - level: 1
+    unlockItem:
+    - {fileID: 864468563}
+    disableItem:
+    - {fileID: 620803527}
+    - {fileID: 1769200471}
+    - {fileID: 864468563}
   - level: 4
-    unlockItem: {fileID: 620803527}
-    disableItem: {fileID: 864468563}
+    unlockItem:
+    - {fileID: 620803527}
+    disableItem:
+    - {fileID: 620803527}
+    - {fileID: 1769200471}
+    - {fileID: 864468563}
   - level: 8
-    unlockItem: {fileID: 1769200471}
-    disableItem: {fileID: 620803527}
+    unlockItem:
+    - {fileID: 1769200471}
+    disableItem:
+    - {fileID: 620803527}
+    - {fileID: 1769200471}
+    - {fileID: 864468563}
 --- !u!114 &942485801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7859,6 +7874,8 @@ MonoBehaviour:
   tiltUp: 20
   tiltDown: -20
   tiltSpeed: 2
+  ignoreTouchOverUI: 1
+  enableKeyboardBoost: 1
 --- !u!50 &958850475
 Rigidbody2D:
   serializedVersion: 4
@@ -9033,7 +9050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1082863189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10185,7 +10202,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -10245,8 +10262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 490.68103, y: 30}
-  m_SizeDelta: {x: 1003.3621, y: 60}
+  m_AnchoredPosition: {x: 535, y: 47}
+  m_SizeDelta: {x: 908.9365, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1407082038
 GameObject:
@@ -10340,7 +10357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1411381949
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10476,7 +10493,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1411381950}
   m_FillRect: {fileID: 758123951}
   m_HandleRect: {fileID: 1411381949}
@@ -10719,8 +10736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1523860749
 GameObject:
@@ -10956,18 +10973,36 @@ MonoBehaviour:
   maxLevel: 8
   baseCost: 50
   PassingGradeUpgradeUnlockItem:
+  - level: 0
+    unlockItem:
+    - {fileID: 1082863188}
+    - {fileID: 575689002}
+    disableItem:
+    - {fileID: 1082863188}
+    - {fileID: 1407082038}
+    - {fileID: 1141287633}
+    - {fileID: 991621557}
+    - {fileID: 575689002}
   - level: 4
-    unlockItem: {fileID: 991621557}
-    disableItem: {fileID: 575689002}
-  - level: 4
-    unlockItem: {fileID: 1407082038}
-    disableItem: {fileID: 1082863188}
+    unlockItem:
+    - {fileID: 1407082038}
+    - {fileID: 991621557}
+    disableItem:
+    - {fileID: 1082863188}
+    - {fileID: 1407082038}
+    - {fileID: 1141287633}
+    - {fileID: 991621557}
+    - {fileID: 575689002}
   - level: 8
-    unlockItem: {fileID: 1106236445}
-    disableItem: {fileID: 991621557}
-  - level: 8
-    unlockItem: {fileID: 1141287633}
-    disableItem: {fileID: 1407082038}
+    unlockItem:
+    - {fileID: 1141287633}
+    - {fileID: 1106236445}
+    disableItem:
+    - {fileID: 1082863188}
+    - {fileID: 1407082038}
+    - {fileID: 1141287633}
+    - {fileID: 991621557}
+    - {fileID: 575689002}
 --- !u!114 &1593915427
 MonoBehaviour:
   m_ObjectHideFlags: 0

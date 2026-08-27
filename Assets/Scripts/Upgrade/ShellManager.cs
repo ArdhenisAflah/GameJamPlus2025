@@ -1,5 +1,6 @@
-using UnityEngine;
+using System;
 using TMPro;
+using UnityEngine;
 
 public class ShellManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class ShellManager : MonoBehaviour
     [Header("Shell Settings")]
     public int shell;
     public TMP_Text shellText;
+
+    // Event terpanggil setiap kali jumlah shell berubah (Add, Spend, Load)
+    public static event Action<int> OnShellChanged;
 
     void Awake()
     {
@@ -31,6 +35,7 @@ public class ShellManager : MonoBehaviour
         shell += amount;
         UpdateShellUI();
         SaveSystem.Instance?.Save();
+        OnShellChanged?.Invoke(shell);
     }
 
     public bool SpendShell(int amount)
@@ -40,6 +45,7 @@ public class ShellManager : MonoBehaviour
             shell -= amount;
             UpdateShellUI();
             SaveSystem.Instance?.Save();
+            OnShellChanged?.Invoke(shell);
             return true;
         }
         return false;
@@ -47,13 +53,8 @@ public class ShellManager : MonoBehaviour
 
     public bool CheckAvaiable(int amount)
     {
-        if (shell >= amount)
-        {
-            return true;
-        }
-        return false;
+        return shell >= amount;
     }
-
 
     void UpdateShellUI()
     {
@@ -67,6 +68,7 @@ public class ShellManager : MonoBehaviour
     {
         shell = Mathf.Max(0, savedShell);
         UpdateShellUI();
+        OnShellChanged?.Invoke(shell);
         Debug.Log($"Loaded Shell: {shell}");
     }
 }

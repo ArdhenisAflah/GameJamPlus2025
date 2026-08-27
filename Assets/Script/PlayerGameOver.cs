@@ -1,50 +1,57 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement; // kalau mau restart scene
+using UnityEngine.SceneManagement;
 
 public class PlayerGameOver : MonoBehaviour
 {
+    [Header("Settings")]
     public Rigidbody2D rb;
     public string groundTag = "Ground";
     public float velocityLimit = 0.01f; // batas minimal dianggap 0
-    public float checkDelay = 1f; // waktu diam sebelum game over
+    public float checkDelay = 1f;       // waktu diam sebelum game over
 
-    private float idleTimer = 0f;
-    private bool touchedGround = false;
-
+    [Header("UI Panels")]
     public GameObject GameOverPanel;
     public Transform panelover;
-
     public GameObject ShellsScore;
     public GameObject Upgrades;
 
+    private float idleTimer = 0f;
+    private bool touchedGround = false;
     private bool isGameOver = false;
-
+    private bool hasFinishedRun = false;
 
     private RocketController controller;
 
-
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
     private void Start()
     {
-        panelover = GameOverPanel.transform.GetChild(2);
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
+        if (GameOverPanel != null && GameOverPanel.transform.childCount > 2)
+            panelover = GameOverPanel.transform.GetChild(2);
+
         controller = GetComponent<RocketController>();
     }
-    void Update()
+
+    private void Update()
     {
-        // Keyboard / Controller / Mouse / Touch
-        if ((Input.anyKeyDown && isGameOver == true) ||
-            (Input.touchCount > 0 && isGameOver == true) ||
-            (Input.GetMouseButtonDown(0) && isGameOver == true))
+        // 1. Jika sudah masuk ke menu Upgrade / Run selesai, hentikan semua proses Update
+        if (hasFinishedRun) return;
+
+        // 2. Kondisi saat Game Over aktif (Menunggu input sentuhan layar dari pemain)
+        if (isGameOver)
         {
-            LoadUpgrade();
+            if (IsTapToContinue())
+            {
+                LoadUpgrade();
+            }
+            return;
         }
-        // Cek velocity player
-        if (rb.velocity.magnitude <= velocityLimit && !isGameOver)
+
+        // 3. Cek velocity player saat gameplay berlangsung
+        if (rb != null && rb.velocity.magnitude <= velocityLimit)
         {
             idleTimer += Time.deltaTime;
 
@@ -60,6 +67,35 @@ public class PlayerGameOver : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Mendeteksi tap/sentuhan pertama di mobile ataupun klik di editor/PC.
+    /// </summary>
+    private bool IsTapToContinue()
+    {
+        // Mobile Touch: Hanya respon pada sentuhan awal (Began)
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                return true;
+            }
+        }
+
+        // Mouse Click Fallback (Editor & PC)
+        if (Input.GetMouseButtonDown(0))
+        {
+            return true;
+        }
+
+        // Keyboard Fallback (Editor & PC)
+        if (Input.anyKeyDown)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(groundTag))
@@ -68,46 +104,57 @@ public class PlayerGameOver : MonoBehaviour
         }
     }
 
-    void GameOver()
+    private void GameOver()
     {
         Debug.Log("GAME OVER");
-
-        // Contoh: restart scene
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GameOverPanel.SetActive(true);
-        // Bisa diganti dengan UI GameOver juga
-        panelover.gameObject.GetComponent<TextMeshProUGUI>().text = "Score: " + ScorSystem.score.ToString();
-
-        //set bool gameover
         isGameOver = true;
 
+        if (GameOverPanel != null)
+            GameOverPanel.SetActive(true);
+
+        if (panelover != null)
+        {
+            var scoreText = panelover.gameObject.GetComponent<TextMeshProUGUI>();
+            if (scoreText != null)
+            {
+                scoreText.text = "Score: " + ScorSystem.score.ToString();
+            }
+        }
     }
 
-    void LoadUpgrade()
+    private void LoadUpgrade()
     {
+        // Tandai bahwa run sudah selesai agar Update tidak lagi memicu GameOver()
+        isGameOver = false;
+        hasFinishedRun = true;
+
         if (ScorSystem.score >= 1000)
         {
             SceneManager.LoadScene("EndCutscene");
+            return;
         }
-        else
-        {
-            //doing stop control.
-            if (controller != null)
-            {
-                controller.enabled = false;
-            }
-            GameOverPanel.SetActive(false);
-            ShellsScore.SetActive(true);
-            Upgrades.SetActive(true);
 
+        // Matikan kontrol roket
+        if (controller != null)
+        {
+            controller.enabled = false;
         }
+
+        Debug.Log("Matikan Game Over Panel");
+        if (GameOverPanel != null)
+            GameOverPanel.SetActive(false);
+
+        if (ShellsScore != null)
+            ShellsScore.SetActive(true);
+
+        if (Upgrades != null)
+            Upgrades.SetActive(true);
 
         if (ScorSystem.score > 0)
         {
-            ShellManager.Instance.AddShell(ScorSystem.score);  // tambahkan ke shell
+            ShellManager.Instance?.AddShell(ScorSystem.score);
             Debug.Log("Converted Score to Shell: +" + ScorSystem.score);
-
-            ScorSystem.score = 0;  // reset score setelah ditukar
+            ScorSystem.score = 0;
         }
 
         SaveSystem.Instance?.Save();
