@@ -46,3 +46,6 @@ TagManager:
   - name: WheelChair
     uniqueID: 1420826443
     locked: 0
+  - name: UI
+    uniqueID: 1243639595
+    locked: 0
