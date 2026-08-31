@@ -130,7 +130,7 @@ public class PlayerGameOver : MonoBehaviour
 
         if (ScorSystem.score >= 1000)
         {
-            SceneManager.LoadScene("EndCutscene");
+            SceneManager.LoadScene("ComicClosing");
             return;
         }
 

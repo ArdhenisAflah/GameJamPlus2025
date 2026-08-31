@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscene/Opening Cutscene.unity
     guid: 7bf674bc43a51f44294f45c0a4200f70
+  - enabled: 1
+    path: Assets/Scenes/Cutscene/ComicOpening.unity
+    guid: 4cd58b9a26b92404096210a86f1d64d2
+  - enabled: 1
+    path: Assets/Scenes/Cutscene/ComicClosing.unity
+    guid: 2bd5c38068499824091b145233c07ace
   m_configObjects: {}
